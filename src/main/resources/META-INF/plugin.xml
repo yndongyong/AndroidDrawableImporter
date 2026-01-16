@@ -1,0 +1,94 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.yndongyong.drawableimporter</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Drawable Importer</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="yndongyong@gmail.com" url="https://yndongyong.github.io">yndongyong</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <h2>Android Drawable Importer</h2>
+    <p>A simple and efficient tool for importing Android drawable resources into your project.</p>
+    
+    <h3>Features</h3>
+    <ul>
+      <li><b>Batch Import</b>: Import multiple density drawable resources at once from a ZIP file</li>
+      <li><b>Drag & Drop</b>: Simply drag and drop your ZIP file containing drawable resources</li>
+      <li><b>Preview</b>: Preview images before importing</li>
+      <li><b>Conflict Detection</b>: Automatically detect and handle file conflicts</li>
+      <li><b>Rename Support</b>: Rename single image during import</li>
+      <li><b>Flexible Target</b>: Choose between drawable or mipmap directories</li>
+    </ul>
+    
+    <h3>Usage</h3>
+    <ol>
+      <li>Open the "Drawable Importer" tool window from the right sidebar</li>
+      <li>Select your project's res directory</li>
+      <li>Prepare a ZIP file with the following structure:
+        <ul>
+          <li>drawable-mdpi/icon.png</li>
+          <li>drawable-hdpi/icon.png</li>
+          <li>drawable-xhdpi/icon.png</li>
+          <li>drawable-xxhdpi/icon.png</li>
+          <li>drawable-xxxhdpi/icon.png</li>
+        </ul>
+      </li>
+      <li>Drag the ZIP file to the tool window</li>
+      <li>Preview the images and click "Import"</li>
+    </ol>
+    
+    <hr/>
+    
+    <h2>Android Drawable 导入工具</h2>
+    <p>一个简单高效的 Android drawable 资源导入工具。</p>
+    
+    <h3>功能特性</h3>
+    <ul>
+      <li><b>批量导入</b>：一次性导入多密度 drawable 资源</li>
+      <li><b>拖拽操作</b>：直接拖拽 ZIP 文件到工具窗口</li>
+      <li><b>图片预览</b>：导入前预览所有图片</li>
+      <li><b>冲突检测</b>：自动检测文件冲突并提供覆盖确认</li>
+      <li><b>重命名支持</b>：单图片导入时支持重命名</li>
+      <li><b>灵活目标</b>：可选择导入到 drawable 或 mipmap 目录</li>
+    </ul>
+    
+    <h3>使用方法</h3>
+    <ol>
+      <li>在右侧边栏打开 "Drawable Importer" 工具窗口</li>
+      <li>选择项目的 res 目录</li>
+      <li>准备包含以下结构的 ZIP 文件：drawable-mdpi/icon.png, drawable-hdpi/icon.png 等</li>
+      <li>拖拽 ZIP 文件到工具窗口</li>
+      <li>预览图片并点击"导入"按钮</li>
+    </ol>
+    
+    <p><em>Developed by yndongyong</em></p>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup displayType="BALLOON" id="DongAndroidDevHelper Notification Group"/>
+
+        <toolWindow factoryClass="com.yndongyong.androiddevhelper.drawableimport.DrawableImportSideWindow"
+                    id="Drawable Importer"
+                    anchor="right" icon="/icons/pub_add_icon_add_photo_normal2.svg"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="org.jetbrains.kotlin">
+        <supportsKotlinPluginMode supportsK2="true"/>
+    </extensions>
+
+</idea-plugin>
